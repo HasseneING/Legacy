@@ -28,4 +28,7 @@ void init_inrect(inside_rectStruct *inrect);
 
 void inside_rect(int *State,MouseXY Mouse, SDL_Rect Rect, SDL_Rect Settings_rect, SDL_Rect Exit_rect,inside_rectStruct *inrect,int * running);
 
+void play_animation(SDL_Surface *GIF_Img[],int i,int delay,SDL_Surface *Screen);
+
+void set_rects(SDL_Rect *clip3);
 #endif
