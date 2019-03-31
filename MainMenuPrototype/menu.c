@@ -20,7 +20,7 @@ int main(void) {
 	int ETAT ;
 	int frame3 = 0;
 	const int SCREEN_HEIGHT = 720;
-	const int SCREEN_WIDTH = 1280;
+	const int SCREEN_WIDTH = 1240;
 
 
 
@@ -71,6 +71,9 @@ int main(void) {
 	SDL_Rect Settings_rect = {480, 280, 145, 300};
 	SDL_Rect Exit_rect = {480, 485, 145, 300};
 
+//Levels 
+	SDL_Surface *Level0_1=NULL;
+	Level0_1 = IMG_Load("MENUart/Levels/Lvl01.png");
 
 
 // Music Loading
@@ -161,6 +164,7 @@ int main(void) {
 			if (frame3 == 20)
 				frame3 = 0;
 
+
 			while (SDL_PollEvent(&event))
 			{
 				switch (event.type) {
@@ -182,7 +186,6 @@ int main(void) {
 		}
 
 		while (running) {					//game loop
-
 			//FPS Regulation
 			FPS_Reg.now = SDL_GetTicks();
 			FPS_Reg.dt = FPS_Reg.now - FPS_Reg.ex ;
@@ -405,8 +408,24 @@ int main(void) {
 			printf("Test done \n");
 			return 0 ;
 		}
-	}//GAME LOOP 1
 
+		while (playLOOP==1)
+		{
+			printf("TESTEST\n");
+			//afficher  Background Afficher Player Movement Control 
+			//Tasks 
+			// 1 - Cut the Picture of the Background [Done]
+			// 2 - Initialise the Bg and Blit the Background []
+			SDL_Flip(Screen);
+			SDL_BlitSurface(Level0_1,NULL,Screen,NULL);
+			SDL_Flip(Screen);
+			// Level0_1ling []
+			// 4 - Movement []
+			// 5 - Next Level Scrolling  []
+		}
+
+
+	}//GAME LOOP 1
 
 
 
