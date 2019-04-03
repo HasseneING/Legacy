@@ -27,15 +27,15 @@ void loadGame(void)
   /* Charge l'image du fond */
   map.background = loadImage("/home/hasseneing/Desktop/Game_Big_Tuto/MENUart/Levels/Lvl01.png");
   wolf.Wolf_anim = loadImage("/home/hasseneing/Desktop/Game_Big_Tuto/MENUart/Enemies/Wolf_Running.png");
-  Pausemenu.Bg = loadImage("/home/hasseneing/Desktop/Game_Big_Tuto/MENUart/backg.jpg");
-  Pausemenu.Button1=loadImage("/MENUart/play.png");
-  Pausemenu.Button2=loadImage("/MENUart/backg.png");
-  Pausemenu.Button3=loadImage("/MENUart/backg.png");
-  Pausemenu.Button4=loadImage("/MENUart/backg.png");
-  Pausemenu.Button1HL=loadImage("/MENUart/backg.png");
-  Pausemenu.Button2HL=loadImage("/MENUart/backg.png");
-  Pausemenu.Button3HL=loadImage("/MENUart/backg.png");
-  Pausemenu.Button4HL=loadImage("/MENUart/backg.png");
+  MainMenu.Bg = IMG_Load("/home/hasseneing/Desktop/Game_Big_Tuto/MENUart/backg.jpg");
+  MainMenu.Button1=IMG_Load("/home/hasseneing/Desktop/Game_Big_Tuto/MENUart/play.png");       // play 
+  MainMenu.Button2=IMG_Load("/home/hasseneing/Desktop/Game_Big_Tuto/MENUart/setting.png");   // settings 
+ // MainMenu.Button3=IMG_Load("/home/hasseneing/Desktop/Game_Big_Tuto/MENUart/credits .png");   // creds 
+  MainMenu.Button4=IMG_Load("/home/hasseneing/Desktop/Game_Big_Tuto/MENUart/quit.png");       // quit
+  MainMenu.Button1HL=IMG_Load("/home/hasseneing/Desktop/Game_Big_Tuto/MENUart/play high.png");
+  MainMenu.Button2HL=IMG_Load("/home/hasseneing/Desktop/Game_Big_Tuto/MENUart/settings high.png");
+ // MainMenu.Button3HL=IMG_Load("/home/hasseneing/Desktop/Game_Big_Tuto/MENUart/credits high.png");
+  MainMenu.Button4HL=IMG_Load("/home/hasseneing/Desktop/Game_Big_Tuto/MENUart/quit high.png");
   PreMenu1[0] = loadImage("MENUart/Premenu/1MENU065.png");
   PreMenu1[1] = loadImage("MENUart/Premenu/2MENU065.png");
   PreMenu1[2] = loadImage("MENUart/Premenu/3MENU065.png");

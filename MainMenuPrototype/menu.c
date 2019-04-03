@@ -24,8 +24,6 @@ int main(void) {
 
 
 
-	MouseXY Mouse;
-
 	inside_rectStruct inrect;
 	init_inrect(&inrect);
 
@@ -71,8 +69,8 @@ int main(void) {
 	SDL_Rect Settings_rect = {480, 280, 145, 300};
 	SDL_Rect Exit_rect = {480, 485, 145, 300};
 
-//Levels 
-	SDL_Surface *Level0_1=NULL;
+//Levels
+	SDL_Surface *Level0_1 = NULL;
 	Level0_1 = IMG_Load("MENUart/Levels/Lvl01.png");
 
 
@@ -256,37 +254,7 @@ int main(void) {
 							running = 0;
 						}
 					}
-
-
-				case SDL_MOUSEMOTION:
-
-					Mouse.MOX = event.motion.x;
-					Mouse.MOY = event.motion.y;
-					inside_rect(&State, Mouse, NewGame_rect, Settings_rect, Exit_rect, &inrect, &running);
-					break;
-
-				case SDL_MOUSEBUTTONDOWN:
-
-					Mouse.BOY = event.button.x;
-					Mouse.BOX = event.button.y;
-					if ((Mouse.MOX > NewGame_rect.x) && (Mouse.MOX < NewGame_rect.x + NewGame_rect.w) && (Mouse.MOY > NewGame_rect.y) && (Mouse.MOY < NewGame_rect.y + NewGame_rect.h)) {
-						playLOOP = 1;
-						running = 0;
-					}
-					if ((Mouse.MOX > Settings_rect.x) && (Mouse.MOX < Settings_rect.x + Settings_rect.w) && (Mouse.MOY > Settings_rect.y) && (Mouse.MOY < Settings_rect.y + Settings_rect.h)) {
-						running = 0;
-						settingsLOOP = 1;
-					}
-					if ((Mouse.MOX > Exit_rect.x) && (Mouse.MOX < Exit_rect.x + Exit_rect.w) && (Mouse.MOY > Exit_rect.y) && (Mouse.MOY < Exit_rect.y + Exit_rect.h)) {
-
-						running = 0;
-						SDL_QUIT;
-					}
-
-					break;
-
 				}//Switch
-
 
 				//	SDL_FillRect(BackGround, &NewGame_rect, SDL_MapRGB(BackGround->format, 255, 255, 255)); TEST RECT
 				SDL_Flip(Screen);
@@ -409,15 +377,15 @@ int main(void) {
 			return 0 ;
 		}
 
-		while (playLOOP==1)
+		while (playLOOP == 1)
 		{
 			printf("TESTEST\n");
-			//afficher  Background Afficher Player Movement Control 
-			//Tasks 
+			//afficher  Background Afficher Player Movement Control
+			//Tasks
 			// 1 - Cut the Picture of the Background [Done]
 			// 2 - Initialise the Bg and Blit the Background []
 			SDL_Flip(Screen);
-			SDL_BlitSurface(Level0_1,NULL,Screen,NULL);
+			SDL_BlitSurface(Level0_1, NULL, Screen, NULL);
 			SDL_Flip(Screen);
 			// Level0_1ling []
 			// 4 - Movement []

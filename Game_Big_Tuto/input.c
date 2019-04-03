@@ -35,7 +35,6 @@ void getInput()
 
             case SDLK_LEFT:
                 input.left = 1;
-                printf("input left = %d\n",input.left );
                 break;
 
             case SDLK_RIGHT:
