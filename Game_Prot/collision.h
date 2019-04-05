@@ -12,5 +12,8 @@ int collision_perpri(Map *bg, Hero *per); // collision personage principale avec
 int pixel_test(SDL_Surface *surface, int x, int y);
 /* fonction qui permet de detecter la couleur d un pixel, les coordonnées du pixel sont x et y, la fonction retourne 0 si la couleur est Black et 1 sinon */
 
+<<<<<<< HEAD
 
 extern Map map;
+=======
+>>>>>>> ae5f2aa1a0f72022c0687cd99cf7f9da872c69c6

@@ -13,10 +13,14 @@ void initializePlayer(void)
 	player.frameTimer = 8;
 
 	player.x = 300;
+<<<<<<< HEAD
 	player.y = 300;
 
 	player.dirY=0;
 	player.dirX=0;
+=======
+	player.y = 100;
+>>>>>>> ae5f2aa1a0f72022c0687cd99cf7f9da872c69c6
 
 	player.w = PLAYER_WIDTH;
 	player.h = PLAYER_HEIGTH;
@@ -92,6 +96,7 @@ void CenterScrollingOnPlayer(void)
 }
 */
 
+<<<<<<< HEAD
 
 void Show_Player_Info(Hero player)
 {
@@ -110,14 +115,21 @@ printf("Player.frameNumber = %d\n",player.frameNumber );
 printf("Player.etat = %d\n",player.etat );
 
 }
+=======
+>>>>>>> ae5f2aa1a0f72022c0687cd99cf7f9da872c69c6
 void updatePlayer(void)
 {
 
 	if (player.timerMort == 0)
 	{
+<<<<<<< HEAD
 		player.dirX = 0;
 	if(player.onGround==0)
 			player.dirY +=GRAVITY_SPEED;
+=======
+
+		player.dirX = 0;
+>>>>>>> ae5f2aa1a0f72022c0687cd99cf7f9da872c69c6
 
 		if (player.dirY >= MAX_FALL_SPEED)
 		{
@@ -143,6 +155,7 @@ void updatePlayer(void)
 				player.sprite = IMG_Load("MENUart/Enemies/Wolf_Running.png");
 			}
 		}
+<<<<<<< HEAD
 		if (input.jump == 1 && player.onGround)
  		{
  			player.dirY = -JUMP_HEIGHT;
@@ -155,11 +168,78 @@ void updatePlayer(void)
 		mapCollision(&player);
 		system("clear");
 		Show_Player_Info(player);
+=======
+
+		if (input.jump == 1 && player.onGround)
+		{
+			player.dirY = -JUMP_HEIGHT;
+			player.onGround = 0;
+		}
+		if (player.onGround == 0)
+		{
+			player.dirY += GRAVITY_SPEED;
+		}
+
+
+		if (player.dirY >= 0)
+		{
+			/* Déplacement en bas */
+			if (player.coll == 1)
+			{
+
+
+				//on le déclare sur le sol (onGround).
+				player.y =  (player.y + player.dirY + player.h) / 20 * 20;
+				player.y -= player.h;
+
+				player.dirY = 0;
+
+				player.onGround = 1;
+			}
+			/*else
+				player.onGround = 0;*/
+
+		}
+		if (player.dirX > 0)
+		{
+
+			if (player.coll = LEFT)
+			{
+				player.x =  (player.x + player.dirX + player.w - 1) * 20;
+
+				player.x -= player.w + 1;
+
+				player.dirX = 0;
+			}
+
+		}
+		if (player.dirX < 0)
+		{
+
+			if (player.coll = RIGHT)
+			{
+				player.x =  (player.x + player.dirX + player.w - 1) * 20;
+
+				player.x = ((player.x + player.dirX + 1) / 20) * 20;
+
+				player.dirX = 0;
+
+			}
+
+		}
+
+		player.x += player.dirX;
+		player.y += player.dirY;
+
+		player.coll = collision_perpri(&map, &player);
+
+>>>>>>> ae5f2aa1a0f72022c0687cd99cf7f9da872c69c6
 	}
 
 	if (player.timerMort > 0)
 	{
 		player.timerMort--;
+<<<<<<< HEAD
 		}
 		if (player.y>1000)
 			player.timerMort= -1;
@@ -167,6 +247,13 @@ void updatePlayer(void)
 			{
 				SDL_Delay(1000);
 				initializePlayer();
+=======
+
+		if (player.timerMort == 0)
+		{
+			initializePlayer();
+		}
+>>>>>>> ae5f2aa1a0f72022c0687cd99cf7f9da872c69c6
 	}
 
 }

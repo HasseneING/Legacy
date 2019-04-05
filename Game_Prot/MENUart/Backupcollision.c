@@ -91,6 +91,7 @@ int pixel_test(SDL_Surface *surface, int x, int y)
 */
 
 
+<<<<<<< HEAD
 
 
 COLLISION REACTION CONTROL
@@ -156,3 +157,5 @@ COLLISION REACTION CONTROL
 		// 	}
 		//
 		// }
+=======
+>>>>>>> ae5f2aa1a0f72022c0687cd99cf7f9da872c69c6

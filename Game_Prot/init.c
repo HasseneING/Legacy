@@ -25,6 +25,7 @@ void loadGame(void)
 {
 // Anything Loaded By this function Has to be declared in Main.h, init.h, Draw.h
   /* Charge l'image du fond */
+<<<<<<< HEAD
   map.background = loadImage("MENUart/Levels/Lvl01.png");
   map.Map_Objects_Sprite_Sheet = IMG_Load("MENUart/Levels/Lvl01Masque.bmp");
 
@@ -38,6 +39,30 @@ void loadGame(void)
   Pausemenu.Button2HL = IMG_Load("/home/hasseneing/Desktop/GAME_GIT/Legacy/Game_Prot/MENUart/settings high.png");
 // Pausemenu.Button3HL=IMG_Load("/MENUart/credits high.png");
   Pausemenu.Button4HL = IMG_Load("/home/hasseneing/Desktop/GAME_GIT/Legacy/Game_Prot/MENUart/quit high.png");
+=======
+  map.background = loadImage("/home/hasseneing/Desktop/Game_Big_Tuto/MENUart/Levels/Lvl01.png");
+  map.Map_Objects_Sprite_Sheet = IMG_Load("/home/hasseneing/Desktop/GAME_GIT/Legacy/Game_Prot/MENUart/Levels/Lvl01Masque.bmp");
+
+
+  /*
+    player.anim[0]=IMG_Load("/home/hasseneing/Desktop/Game_Big_Tuto/MENUart/Enemies/Wolf1.png");
+    player.anim[1]=IMG_Load("/home/hasseneing/Desktop/Game_Big_Tuto/MENUart/Enemies/Wolf2.png");
+    player.anim[2]=IMG_Load("/home/hasseneing/Desktop/Game_Big_Tuto/MENUart/Enemies/Wolf3.png");
+    player.anim[3]=IMG_Load("/home/hasseneing/Desktop/Game_Big_Tuto/MENUart/Enemies/Wolf4.png");
+  */
+
+
+
+  Pausemenu.Bg = IMG_Load("/home/hasseneing/Desktop/Game_Big_Tuto/MENUart/backg.jpg");
+  Pausemenu.Button1 = IMG_Load("/home/hasseneing/Desktop/Game_Big_Tuto/MENUart/play.png");     // play
+  Pausemenu.Button2 = IMG_Load("/home/hasseneing/Desktop/Game_Big_Tuto/MENUart/setting.png"); // settings
+// Pausemenu.Button3=IMG_Load("/home/hasseneing/Desktop/Game_Big_Tuto/MENUart/credits .png");   // creds
+  Pausemenu.Button4 = IMG_Load("/home/hasseneing/Desktop/Game_Big_Tuto/MENUart/quit.png");     // quit
+  Pausemenu.Button1HL = IMG_Load("/home/hasseneing/Desktop/Game_Big_Tuto/MENUart/play high.png");
+  Pausemenu.Button2HL = IMG_Load("/home/hasseneing/Desktop/Game_Big_Tuto/MENUart/settings high.png");
+// Pausemenu.Button3HL=IMG_Load("/home/hasseneing/Desktop/Game_Big_Tuto/MENUart/credits high.png");
+  Pausemenu.Button4HL = IMG_Load("/home/hasseneing/Desktop/Game_Big_Tuto/MENUart/quit high.png");
+>>>>>>> ae5f2aa1a0f72022c0687cd99cf7f9da872c69c6
 
 
 
@@ -82,3 +107,7 @@ void cleanup()
   /* Quitte la SDL */
   SDL_Quit();
 }
+<<<<<<< HEAD
+=======
+
+>>>>>>> ae5f2aa1a0f72022c0687cd99cf7f9da872c69c6

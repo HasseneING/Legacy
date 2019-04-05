@@ -7,8 +7,11 @@
 
 #define SCREEN_WIDTH 1240
 #define SCREEN_HEIGHT 720
+<<<<<<< HEAD
 #define MAX_X 1240
 #define MAX_Y 720
+=======
+>>>>>>> ae5f2aa1a0f72022c0687cd99cf7f9da872c69c6
 
 #define PLAYER_WIDTH 211
 #define PLAYER_HEIGTH 200

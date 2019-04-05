@@ -14,7 +14,11 @@ SDL_Color GetPixel(SDL_Surface *pSurface, int x, int y)
 
   pPosition += (pSurface->format->BytesPerPixel * x);
 
+<<<<<<< HEAD
   memcpy(&col , &pPosition ,pSurface->format->BytesPerPixel );//
+=======
+  memcpy(&col , pPosition , pSurface->format->BytesPerPixel);
+>>>>>>> ae5f2aa1a0f72022c0687cd99cf7f9da872c69c6
 //convertir color
 
   SDL_GetRGB(col, pSurface->format, &color.r, &color.g, &color.b);
@@ -73,8 +77,12 @@ int collision_test (SDL_Surface *mask, int x, int y, int height)
   else return 1;
 }
 */
+<<<<<<< HEAD
 
 
+=======
+/**/
+>>>>>>> ae5f2aa1a0f72022c0687cd99cf7f9da872c69c6
 /*
 int pixel_test(SDL_Surface *surface, int x, int y)
 {
@@ -90,3 +98,8 @@ int pixel_test(SDL_Surface *surface, int x, int y)
   }
 }
 */
+<<<<<<< HEAD
+=======
+
+
+>>>>>>> ae5f2aa1a0f72022c0687cd99cf7f9da872c69c6
