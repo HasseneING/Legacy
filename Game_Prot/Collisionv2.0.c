@@ -4,43 +4,43 @@
 SDL_Color GetPixel(SDL_Surface *Background, int x, int y)
 {
 
-    SDL_Color color, white= {0,0,0};
+    SDL_Color color, white = {0, 0, 0};
     Uint32 col = 0;
-  /*  if (x<8000 && y<600)
-    {
-*/
-        char* pixelPosition = (char*)Background->pixels;
-        pixelPosition += (Background->pitch * y);
-        pixelPosition += (Background->format->BytesPerPixel * x);
-        memcpy(&col, pixelPosition, Background->format->BytesPerPixel);
-        SDL_GetRGB(col, Background->format, &color.r, &color.g, &color.b);
-        return (color);
-/*
-    }
+    /*  if (x<8000 && y<600)
+      {
+    */
+    char* pixelPosition = (char*)Background->pixels;
+    pixelPosition += (Background->pitch * y);
+    pixelPosition += (Background->format->BytesPerPixel * x);
+    memcpy(&col, pixelPosition, Background->format->BytesPerPixel);
+    SDL_GetRGB(col, Background->format, &color.r, &color.g, &color.b);
+    return (color);
+    /*
+        }
 
-    else
+        else
 
-        return (white);
-*/
+            return (white);
+    */
 }
 
 
 void mapCollision(Hero *entity)
 {
 
-    int i, xg, xd, yg, yd,test;
-    SDL_Color PixelToCompare1,PixelToCompare2;
+    int i, xg, xd, yg, yd, test;
+    SDL_Color PixelToCompare1, PixelToCompare2;
     SDL_LockSurface(map.Map_Objects_Sprite_Sheet);
     xg = entity->x + entity->dirX;
     xd = entity->x + entity->dirX + entity->w;
     yg = yd = entity->y + entity->h / 2;
-    if (xg >0 && xd < MAX_X && yg >= 0 && yd < MAX_Y)
+    if (xg > 0 && xd < MAX_X && yg >= 0 && yd < MAX_Y)
     {
 
         if (entity->dirX > 0)
         {
-            PixelToCompare1= GetPixel(map.Map_Objects_Sprite_Sheet,xd,yg);
-            PixelToCompare2= GetPixel(map.Map_Objects_Sprite_Sheet,xd,yd);
+            PixelToCompare1 = GetPixel(map.Map_Objects_Sprite_Sheet, xd, yg);
+            PixelToCompare2 = GetPixel(map.Map_Objects_Sprite_Sheet, xd, yd);
             test = ((PixelToCompare1.r == 0) && (PixelToCompare1.b == 0) && (PixelToCompare1.g == 0)) && ((PixelToCompare2.r == 0) && (PixelToCompare2.b == 0) && (PixelToCompare2.g == 0));
             if (test)
             {
@@ -54,8 +54,8 @@ void mapCollision(Hero *entity)
         else if (entity->dirX < 0)
         {
 
-            PixelToCompare1= GetPixel(map.Map_Objects_Sprite_Sheet,xg,yg);
-            PixelToCompare2= GetPixel(map.Map_Objects_Sprite_Sheet,xg,yd);
+            PixelToCompare1 = GetPixel(map.Map_Objects_Sprite_Sheet, xg, yg);
+            PixelToCompare2 = GetPixel(map.Map_Objects_Sprite_Sheet, xg, yd);
             test = ((PixelToCompare1.r == 0) && (PixelToCompare1.b == 0) && (PixelToCompare1.g == 0)) && ((PixelToCompare2.r == 0) && (PixelToCompare2.b == 0) && (PixelToCompare2.g == 0));
             if (test)
             {
@@ -67,8 +67,8 @@ void mapCollision(Hero *entity)
         }
     }
 
-    xg = (entity->x)+entity->w /2;
-    xd = entity->x + entity->w /2 ;
+    xg = (entity->x) + entity->w / 2;
+    xd = entity->x + entity->w / 2 ;
     yg = (entity->y + entity->dirY);
     yd = (entity->y + entity->dirY + entity->h);
     if (xg >= 0 && xd < MAX_X && yg >= 0 && yd < MAX_Y)
@@ -77,14 +77,14 @@ void mapCollision(Hero *entity)
         if (entity->dirY > 0)
         {
 
-            PixelToCompare1= GetPixel(map.Map_Objects_Sprite_Sheet,xd,yd);
-            PixelToCompare2= GetPixel(map.Map_Objects_Sprite_Sheet,xg,yd);
-            test = ((PixelToCompare1.r == 0) && (PixelToCompare1.b == 0) && (PixelToCompare1.g == 0)&& ((PixelToCompare2.r == 0) && (PixelToCompare2.b == 0) && (PixelToCompare2.g == 0)));
+            PixelToCompare1 = GetPixel(map.Map_Objects_Sprite_Sheet, xd, yd);
+            PixelToCompare2 = GetPixel(map.Map_Objects_Sprite_Sheet, xg, yd);
+            test = ((PixelToCompare1.r == 0) && (PixelToCompare1.b == 0) && (PixelToCompare1.g == 0) && ((PixelToCompare2.r == 0) && (PixelToCompare2.b == 0) && (PixelToCompare2.g == 0)));
             if (test)
             {
 
                 entity->y = yd;
-                entity->y -= entity->h+2;
+                entity->y -= entity->h + 2;
                 entity->dirY = 0;
                 entity->onGround = 1;
 
@@ -94,9 +94,9 @@ void mapCollision(Hero *entity)
         else if (entity->dirY < 0)
         {
 
-            PixelToCompare1= GetPixel(map.Map_Objects_Sprite_Sheet,xd,yg);
-            PixelToCompare2= GetPixel(map.Map_Objects_Sprite_Sheet,xg,yg);
-            test = ((PixelToCompare1.r == 0) && (PixelToCompare1.b == 0) && (PixelToCompare1.g == 0)) &&((PixelToCompare2.r == 0) && (PixelToCompare2.b == 0) && (PixelToCompare2.g == 0));
+            PixelToCompare1 = GetPixel(map.Map_Objects_Sprite_Sheet, xd, yg);
+            PixelToCompare2 = GetPixel(map.Map_Objects_Sprite_Sheet, xg, yg);
+            test = ((PixelToCompare1.r == 0) && (PixelToCompare1.b == 0) && (PixelToCompare1.g == 0)) && ((PixelToCompare2.r == 0) && (PixelToCompare2.b == 0) && (PixelToCompare2.g == 0));
             if (test)
             {
 

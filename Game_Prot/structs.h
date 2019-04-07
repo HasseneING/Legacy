@@ -21,7 +21,7 @@ typedef struct Gestion
 typedef struct Map
 {
 
-	SDL_Surface *background,*Map_Objects_Sprite_Sheet;
+	SDL_Surface *background, *Map_Objects_Sprite_Sheet;
 
 	int startX, startY;
 	int maxX, maxY;
@@ -34,7 +34,7 @@ typedef struct Map
 typedef struct Hero
 {
 
-	SDL_Surface *sprite,*anim[4];
+	SDL_Surface *sprite, *anim[4];
 
 	/* Coordonnées du héros */
 	int x, y;
@@ -68,6 +68,11 @@ typedef struct Menus
 	SDL_Surface *Button1, *Button2, *Button3, *Button4, *Button5, *Button1HL, *Button2HL, *Button3HL, *Button4HL;
 } Menu ;
 
+
+typedef struct Settingsmenu
+{
+	SDL_Surface *Volume, *VolumeHL, *BacktoM, *BacktoMHL, *Controles, *ControlesHL, *VolHigh, *VolHighHL, *VolMed, *VolMedHL, *VolLow, *VolLowHL, *PaperBG;
+} SettingsM ;
 
 
 

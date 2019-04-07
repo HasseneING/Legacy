@@ -3,129 +3,187 @@
 
 int main( int argc, char *argv[ ] )
 {
-    unsigned int frameLimit = SDL_GetTicks() + 16;
-    int playLOOP = 0;
-    int AnimLOOP = 1;
-    int mainLOOP = 1;
-    int menuLOOP = 0;
-    int settingsLOOP = 0;
-    int Etat = 0 ;
+  unsigned int frameLimit = SDL_GetTicks() + 16;
+  int playLOOP = 0;
+  int AnimLOOP = 1;
+  int mainLOOP = 1;
+  int menuLOOP = 0;
+  int settingsLOOP = 0;
+  int Etat = 0, ETAT = 0;
 
-    init("Prophecy");
-    /* On initialise le joueur */
-    initializePlayer();
-    loadGame();
-    atexit(cleanup);
+  init("Prophecy");
+  /* On initialise le joueur */
+  initializePlayer();
+  loadGame();
+  atexit(cleanup);
 
-    play_animation(PreMenu1, 14, 34, jeu.screen, 0, 0);
+  play_animation(PreMenu1, 14, 34, jeu.screen, 0, 0);
 
-    while (mainLOOP)
+  while (mainLOOP)
+  {
+    while (AnimLOOP)
     {
-        while (AnimLOOP)
-        {
 
-            getInput();
+      getInput();
 
-            if (input.enter == 1)
-            {
-                play_animation(PreMenu2, 14, 34, jeu.screen, 0, 0);
-                AnimLOOP = 0 ;
-                menuLOOP = 1;
-            }
-        }
+      if (input.enter == 1)
+      {
+        play_animation(PreMenu2, 14, 34, jeu.screen, 0, 0);
+        AnimLOOP = 0 ;
+        menuLOOP = 1;
+      }
+    }
 
 
-        while (menuLOOP)
-        {
-            SDL_Flip(jeu.screen);
-            SDL_BlitSurface(Pausemenu.Bg, NULL, jeu.screen, NULL);
+    while (menuLOOP)
+    {
+      SDL_Flip(jeu.screen);
+      SDL_BlitSurface(Pausemenu.Bg, NULL, jeu.screen, NULL);
 
-            getInput();
+      getInput();
 
+      if (Etat == 1)//PLAY Highlighted
+        drawImage(Pausemenu.Button1HL, 0, 0);
+      else
+        drawImage(Pausemenu.Button1, 0, 0);
+      if (Etat == 2)//Settings Highlighted
+        drawImage(Pausemenu.Button2HL, 0, 0);
+      else
+        drawImage(Pausemenu.Button2, 0, 0);
+      /*if (Etat == 3)//Credits Highlighted
+          drawImage(Pausemenu.Button3HL, 0, 0);
+      else
+          drawImage(Pausemenu.Button3, 0, 0);*/
+      if (Etat == 4)//exit Highlighted
+        drawImage(Pausemenu.Button4HL, 0, 0);
+      else
+        drawImage(Pausemenu.Button4, 0, 0);
 
-            if (Etat == 1)//PLAY Highlighted
-                drawImage(Pausemenu.Button1HL, 0, 0);
-            else
-                drawImage(Pausemenu.Button1, 0, 0);
-            if (Etat == 2)//Settings Highlighted
-                drawImage(Pausemenu.Button2HL, 0, 0);
-            else
-                drawImage(Pausemenu.Button2, 0, 0);
-            /*if (Etat == 3)//Credits Highlighted
-                drawImage(Pausemenu.Button3HL, 0, 0);
-            else
-                drawImage(Pausemenu.Button3, 0, 0);*/
-            if (Etat == 4)//exit Highlighted
-                drawImage(Pausemenu.Button4HL, 0, 0);
-            else
-                drawImage(Pausemenu.Button4, 0, 0);
+      if (Etat >= 5)
+        Etat = 0;
+      if (Etat <= -1)
+        Etat = 5 ;
+      if (input.down == 1)
+        Etat++;
+      SDL_Delay(30);
+      if (input.up == 1)
+        Etat--;
+      SDL_Delay(30);
 
-            if (Etat >= 5)
-                Etat = 0;
-            if (Etat <= -1)
-                Etat = 5 ;
-            if (input.down == 1)
-                Etat++;
-            SDL_Delay(30);
-            if (input.up == 1)
-                Etat--;
-            SDL_Delay(30);
-
-            if ((Etat == 1) && (input.enter == 1)) // play
-            {
-                menuLOOP = 0;
-                playLOOP = 1;
-            }
-
-
-            if ((Etat == 2) && (input.enter == 1)) //Settings
-            {
-                menuLOOP = 0;
-                settingsLOOP = 1;
-
-            }
+      if ((Etat == 1) && (input.enter == 1)) // play
+      {
+        menuLOOP = 0;
+        playLOOP = 1;
+      }
 
 
-            /*if ((Etat == 3)&&(input.enter==1))//Credits
-            {
+      if ((Etat == 2) && (input.enter == 1)) //Settings
+      {
+        menuLOOP = 0;
+        settingsLOOP = 1;
 
-            }
-            */
-
-
-            if ((Etat == 4) && (input.enter == 1)) //exit
-            {
-                menuLOOP = 0;
-            }
+      }
 
 
-            delay(frameLimit);
-            frameLimit = SDL_GetTicks() + 16;
-            SDL_Flip(jeu.screen);
-        }
+      /*if ((Etat == 3)&&(input.enter==1))//Credits
+      {
 
-        while (playLOOP == 1)
-        {
+      }
+      */
 
-            /* On vérifie l'état des entrées (clavier puis plus tard joystick */
-            getInput();
 
-            draw();
+      if ((Etat == 4) && (input.enter == 1)) //exit
+      {
+        menuLOOP = 0;
+      }
 
-            updatePlayer();
 
-            SDL_Flip(jeu.screen);
+      delay(frameLimit);
+      frameLimit = SDL_GetTicks() + 16;
+      SDL_Flip(jeu.screen);
+    }
 
-           /* Gestion des 60 fps ( 60 images pas seconde : soit 1s ->1000ms/60 = 16.6 -> 16
-            On doit donc attendre 16 ms entre chaque image (frame) */
-            delay(frameLimit);
-            frameLimit = SDL_GetTicks() + 16;
 
-        }
+    ETAT = 7;
+    while (settingsLOOP)
+    {
+      getInput();
+      SDL_Flip(jeu.screen);
+      SDL_BlitSurface(Pausemenu.Bg, NULL, jeu.screen, NULL);
+      SDL_BlitSurface(SettingsMenu.PaperBG, NULL, jeu.screen , NULL);
+
+      if (ETAT == 6)
+        SDL_BlitSurface(SettingsMenu.BacktoMHL, NULL, jeu.screen, NULL);
+      else
+        SDL_BlitSurface(SettingsMenu.BacktoM, NULL, jeu.screen , NULL);
+
+      if (ETAT == 5)
+        SDL_BlitSurface(SettingsMenu.ControlesHL, NULL, jeu.screen , NULL);
+      else
+        SDL_BlitSurface(SettingsMenu.Controles, NULL, jeu.screen , NULL);
+
+      if (ETAT == 4)
+        SDL_BlitSurface(SettingsMenu.VolumeHL, NULL, jeu.screen , NULL);
+      else
+        SDL_BlitSurface(SettingsMenu.Volume, NULL, jeu.screen , NULL);
+
+      if (ETAT == 3)
+        SDL_BlitSurface(SettingsMenu.VolLowHL, NULL, jeu.screen , NULL);
+      else
+        SDL_BlitSurface(SettingsMenu.VolLow, NULL, jeu.screen , NULL);
+
+      if (ETAT == 2)
+        SDL_BlitSurface(SettingsMenu.VolMedHL, NULL, jeu.screen , NULL);
+      else
+        SDL_BlitSurface(SettingsMenu.VolMed, NULL, jeu.screen , NULL);
+
+      if (ETAT == 1)
+        SDL_BlitSurface(SettingsMenu.VolHighHL, NULL, jeu.screen , NULL);
+      else
+        SDL_BlitSurface(SettingsMenu.VolHigh, NULL, jeu.screen , NULL);
+
+      if (ETAT >= 7)
+        ETAT = 0;
+      if (ETAT <= -1)
+        ETAT = 7 ;
+      if (input.down == 1)
+        ETAT++;
+      SDL_Delay(30);
+      if (input.up == 1)
+        ETAT--;
+      SDL_Delay(30);
+
+
+
+      delay(frameLimit);
+      frameLimit = SDL_GetTicks() + 16;
+    }
+
+
+
+
+
+    while (playLOOP == 1)
+    {
+
+      /* On vérifie l'état des entrées (clavier puis plus tard joystick */
+      getInput();
+
+      draw();
+
+      updatePlayer();
+
+      SDL_Flip(jeu.screen);
+
+      /* Gestion des 60 fps ( 60 images pas seconde : soit 1s ->1000ms/60 = 16.6 -> 16
+       On doit donc attendre 16 ms entre chaque image (frame) */
+      delay(frameLimit);
+      frameLimit = SDL_GetTicks() + 16;
 
     }
-    /* Exit */
-    exit(0);
+
+  }
+  /* Exit */
+  exit(0);
 
 }
-

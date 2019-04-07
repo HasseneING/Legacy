@@ -30,9 +30,10 @@ Wolf wolf;
 
 Menu Pausemenu;
 
+SettingsM SettingsMenu;
+
 Hero player;
 
 SDL_Surface *PreMenu1[15];
 
 SDL_Surface *PreMenu2[15];
-

@@ -33,46 +33,33 @@ void play_animation(SDL_Surface *GIF_Img[], int i, int delay, SDL_Surface *Scree
 void drawanimatedplayer()
 {
 
-    if (player.frameTimer <= 0)
-    {
-<<<<<<< HEAD
+	if (player.frameTimer <= 0)
+	{
 
-=======
-      
->>>>>>> ae5f2aa1a0f72022c0687cd99cf7f9da872c69c6
-        player.frameTimer = TIME_BETWEEN_2_FRAMES;
+		player.frameTimer = TIME_BETWEEN_2_FRAMES;
 
-        player.frameNumber++;
+		player.frameNumber++;
 
-        if(player.frameNumber >= player.sprite->w / PLAYER_WIDTH)
-            player.frameNumber = 0;
+		if (player.frameNumber >= player.sprite->w / PLAYER_WIDTH)
+			player.frameNumber = 0;
 
-    }
-    else
-        player.frameTimer--;
-    drawplayer();
-<<<<<<< HEAD
+	}
+	else
+		player.frameTimer--;
+	drawplayer();
 }
 
-
-=======
-}  
->>>>>>> ae5f2aa1a0f72022c0687cd99cf7f9da872c69c6
 void draw(void)
 {
 
 	/* Affiche le fond (background) aux coordonnées (0,0) */
-	drawImage(map.background,-(player.x-400)/4, 0);
+	drawImage(map.background, -(player.x - 400) / 4, 0);
 	//CenterScrollingOnPlayer();
 
 	/* Affiche le joueur */
-	if ((input.left == 1)||( input.right == 1))
+	if ((input.left == 1) || ( input.right == 1))
 		drawanimatedplayer();
-<<<<<<< HEAD
 	else
-=======
-	else 
->>>>>>> ae5f2aa1a0f72022c0687cd99cf7f9da872c69c6
 		drawplayer(); // Idle
 	/* Affiche l'écran */
 	SDL_Flip(jeu.screen);
@@ -82,10 +69,6 @@ void draw(void)
 }
 
 
-<<<<<<< HEAD
-
-=======
->>>>>>> ae5f2aa1a0f72022c0687cd99cf7f9da872c69c6
 SDL_Surface *loadImage(char *name)
 {
 	/* Charge une image temporaire avec SDL Image */
@@ -143,7 +126,3 @@ void delay(unsigned int frameLimit)
 		SDL_Delay(frameLimit - ticks);
 	}
 }
-<<<<<<< HEAD
-=======
-
->>>>>>> ae5f2aa1a0f72022c0687cd99cf7f9da872c69c6
