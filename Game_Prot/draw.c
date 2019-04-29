@@ -1,7 +1,15 @@
-
-
 #include "draw.h"
-
+/**
+* @file Draw.c
+* @brief  Mostly Drawing things on the screen in a very "clever" way
+* @author Legacy Team
+* @version 0.1.3
+* @date Apr 18, 2019
+*
+* GameEngine 0.1.3
+*
+* Ayya Barra ay
+*/
 void drawImage(SDL_Surface *image, int x, int y)
 {
 	SDL_Rect dest;
@@ -30,42 +38,41 @@ void play_animation(SDL_Surface *GIF_Img[], int i, int delay, SDL_Surface *Scree
 }
 
 
-void drawanimatedplayer()
+void drawanimatedplayer(Hero *player)
 {
 
-	if (player.frameTimer <= 0)
+	if (player->frameTimer <= 0)
 	{
 
-		player.frameTimer = TIME_BETWEEN_2_FRAMES;
+		player->frameTimer = TIME_BETWEEN_2_FRAMES;
 
-		player.frameNumber++;
+		player->frameNumber++;
 
-		if (player.frameNumber >= player.sprite->w / PLAYER_WIDTH)
-			player.frameNumber = 0;
+		if (player->frameNumber >= player->sprite->w / 157)
+			player->frameNumber = 0;
 
 	}
 	else
-		player.frameTimer--;
-	drawplayer();
+		player->frameTimer--;
+	drawplayer(player);
 }
 
-void draw(void)
+// need to be revisited
+void animate_enemy(Enemy *enemy,int Enemy_Width)
 {
 
-	/* Affiche le fond (background) aux coordonnées (0,0) */
-	drawImage(map.background, -(player.x - 400) / 4, 0);
-	//CenterScrollingOnPlayer();
+	if (enemy->frameTimer <= 0)
+	{
+		enemy->frameTimer = TIME_BETWEEN_2_FRAMES;
 
-	/* Affiche le joueur */
-	if ((input.left == 1) || ( input.right == 1))
-		drawanimatedplayer();
+		enemy->frameNumber++;
+
+		if (enemy->frameNumber >= enemy->Spritesheet->w / Enemy_Width)
+			enemy->frameNumber = 0;
+	}
 	else
-		drawplayer(); // Idle
-	/* Affiche l'écran */
-	SDL_Flip(jeu.screen);
-
-	/* Delai */
-	SDL_Delay(1);
+		enemy->frameTimer--;
+	drawEnemy(enemy,155,130);
 }
 
 
@@ -108,10 +115,7 @@ SDL_Surface *loadImage(char *name)
 void delay(unsigned int frameLimit)
 {
 
-	/* Gestion des 60 fps (images/stories/seconde) */
-
 	unsigned int ticks = SDL_GetTicks();
-
 	if (frameLimit < ticks)
 	{
 		return;
@@ -125,4 +129,30 @@ void delay(unsigned int frameLimit)
 	{
 		SDL_Delay(frameLimit - ticks);
 	}
+}
+void init_Levels(void)
+{
+	if (map.level == 0 ) // Tavern / Training Grounds 1
+		{///home/hasseneing/Desktop/GAME_GIT/Legacy/Game_Prot/MENUart/Levels/LnLevel0-1Small.png
+			map.background = loadImage("/home/hasseneing/Desktop/GAME_GIT/Legacy/Game_Prot/MENUart/Levels/Lvl01.png");
+			map.Map_Objects_Sprite_Sheet = IMG_Load("/home/hasseneing/Desktop/GAME_GIT/Legacy/Game_Prot/MENUart/Levels/Lvl01Masque.bmp");
+		}
+	if (map.level == 1 )// Tavern / Training Grounds 2
+	{
+		map.background = loadImage("/home/hasseneing/Desktop/GAME_GIT/Legacy/Game_Prot/MENUart/Levels/Lvl02.png");
+		map.Map_Objects_Sprite_Sheet = IMG_Load("/home/hasseneing/Desktop/GAME_GIT/Legacy/Game_Prot/MENUart/Levels/Lvl02Masque.bmp");
+	}
+
+	if (map.level == 2 )// Tavern / Training Grounds 3
+	{
+		map.background = IMG_Load("/home/hasseneing/Desktop/GAME_GIT/Legacy/Game_Prot/MENUart/Levels/Lvl03.png");
+		map.Map_Objects_Sprite_Sheet = IMG_Load("/home/hasseneing/Desktop/GAME_GIT/Legacy/Game_Prot/MENUart/Levels/Lvl03Masque.bmp");
+	}
+}
+void draw(void)
+{
+
+	SDL_BlitSurface(map.background,&map.Camera,jeu.screen,NULL);
+	//Spawn_Knight(Knight);
+	SDL_Delay(1);
 }

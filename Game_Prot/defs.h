@@ -8,12 +8,15 @@
 #define SCREEN_WIDTH 1240
 #define SCREEN_HEIGHT 720
 
-#define MAX_X 1240
-#define MAX_Y 720
+#define MAX_X 4006
+#define MAX_Y 783
 
 
-#define PLAYER_WIDTH 211
-#define PLAYER_HEIGTH 200
+#define PLAYER_WIDTH 134
+#define PLAYER_HEIGTH 180
+
+#define ENEMY_WIDTH 186
+#define ENEMY_HEIGHT 256
 
 #define LEFT 99
 #define RIGHT 100

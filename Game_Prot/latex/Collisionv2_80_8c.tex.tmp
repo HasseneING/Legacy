@@ -1,0 +1,36 @@
+\hypertarget{Collisionv2_80_8c}{}\section{Collisionv2.0.c File Reference}
+\label{Collisionv2_80_8c}\index{Collisionv2.\+0.\+c@{Collisionv2.\+0.\+c}}
+
+
+Perfect Pixel Collision.  
+
+
+{\ttfamily \#include \char`\"{}collision.\+h\char`\"{}}\newline
+Include dependency graph for Collisionv2.0.c\+:
+% FIG 0
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{Collisionv2_80_8c_a3cc387ea4c9c8da9e2593b25634aa3ee}\label{Collisionv2_80_8c_a3cc387ea4c9c8da9e2593b25634aa3ee}} 
+S\+D\+L\+\_\+\+Color {\bfseries Get\+Pixel} (S\+D\+L\+\_\+\+Surface $\ast$Background, int x, int y)
+\item 
+\mbox{\Hypertarget{Collisionv2_80_8c_a981d6bfac8c6f0ac1216283744b163e5}\label{Collisionv2_80_8c_a981d6bfac8c6f0ac1216283744b163e5}} 
+void {\bfseries map\+Collision} (\hyperlink{structHero}{Hero} $\ast$entity)
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Perfect Pixel Collision. 
+
+\begin{DoxyAuthor}{Author}
+Legacy Team 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1.\+3 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+Apr 18, 2019
+\end{DoxyDate}
+Game\+Engine 0.\+1.\+3
+
+Ayya Barra ay 

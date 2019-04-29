@@ -1,7 +1,17 @@
 #include "input.h"
+/**
+* @file Input.c
+* @brief  getInput Handles all the needed inputs and saves them into an input Struct
+* @author Legacy Team
+* @version 0.1.3
+* @date Apr 18, 2019
+*
+* GameEngine 0.1.3
+*
+* Ayya Barra ay
+*/
 
-
-void getInput()
+void getInput(Input *input)
 {
     SDL_Event event;
 
@@ -22,35 +32,35 @@ void getInput()
             {
 
             case SDLK_DELETE:
-                input.erase = 1;
+                input->erase = 1;
                 break;
 
             case SDLK_c:
-                input.jump = 1;
+                input->jump = 1;
                 break;
 
             case SDLK_v:
-                input.attack = 1;
+                input->attack = 1;
                 break;
 
             case SDLK_LEFT:
-                input.left = 1;
+                input->left = 1;
                 break;
 
             case SDLK_RIGHT:
-                input.right = 1;
+                input->right = 1;
                 break;
 
             case SDLK_DOWN:
-                input.down = 1;
+                input->down = 1;
                 break;
 
             case SDLK_UP:
-                input.up = 1;
+                input->up = 1;
                 break;
 
             case SDLK_RETURN:
-                input.enter = 1;
+                input->enter = 1;
                 break;
 
             default:
@@ -62,31 +72,31 @@ void getInput()
             switch (event.key.keysym.sym)
             {
             case SDLK_DELETE:
-                input.erase = 0;
+                input->erase = 0;
                 break;
 
             case SDLK_c:
-                input.jump = 0;
+                input->jump = 0;
                 break;
 
             case SDLK_LEFT:
-                input.left = 0;
+                input->left = 0;
                 break;
 
             case SDLK_RIGHT:
-                input.right = 0;
+                input->right = 0;
                 break;
 
             case SDLK_DOWN:
-                input.down = 0;
+                input->down = 0;
                 break;
 
             case SDLK_UP:
-                input.up = 0;
+                input->up = 0;
                 break;
 
             case SDLK_RETURN:
-                input.enter = 0;
+                input->enter = 0;
                 break;
 
             default:

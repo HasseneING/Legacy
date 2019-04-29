@@ -4,11 +4,15 @@
 
 void init(char *title)
 {
+  initEnemies();
+
   if (SDL_Init(SDL_INIT_EVERYTHING ) < 0)
   {
     printf("Could not initialize SDL: %s\n", SDL_GetError());
     exit(1);
   }
+  map.Camera.w=SCREEN_WIDTH;
+  	map.Camera.h=SCREEN_HEIGHT;
   jeu.screen = SDL_SetVideoMode(SCREEN_WIDTH, SCREEN_HEIGHT, 0, SDL_HWSURFACE | SDL_DOUBLEBUF);
   if (jeu.screen == NULL)
   {
@@ -25,19 +29,7 @@ void loadGame(void)
 {
 // Anything Loaded By this function Has to be declared in Main.h, init.h, Draw.h
   /* Charge l'image du fond */
-  map.background = loadImage("/home/hasseneing/Desktop/Game_Big_Tuto/MENUart/Levels/Lvl01.png");
-  map.Map_Objects_Sprite_Sheet = IMG_Load("/home/hasseneing/Desktop/GAME_GIT/Legacy/Game_Prot/MENUart/Levels/Lvl01Masque.bmp");
-
-
-  /*
-    player.anim[0]=IMG_Load("/home/hasseneing/Desktop/Game_Big_Tuto/MENUart/Enemies/Wolf1.png");
-    player.anim[1]=IMG_Load("/home/hasseneing/Desktop/Game_Big_Tuto/MENUart/Enemies/Wolf2.png");
-    player.anim[2]=IMG_Load("/home/hasseneing/Desktop/Game_Big_Tuto/MENUart/Enemies/Wolf3.png");
-    player.anim[3]=IMG_Load("/home/hasseneing/Desktop/Game_Big_Tuto/MENUart/Enemies/Wolf4.png");
-  */
-
-
-
+  
   Pausemenu.Bg = IMG_Load("/home/hasseneing/Desktop/Game_Big_Tuto/MENUart/backg.jpg");
   Pausemenu.Button1 = IMG_Load("/home/hasseneing/Desktop/Game_Big_Tuto/MENUart/play.png");     // play
   Pausemenu.Button2 = IMG_Load("/home/hasseneing/Desktop/Game_Big_Tuto/MENUart/setting.png"); // settings

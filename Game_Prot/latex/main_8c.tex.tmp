@@ -1,0 +1,34 @@
+\hypertarget{main_8c}{}\section{main.\+c File Reference}
+\label{main_8c}\index{main.\+c@{main.\+c}}
+
+
+Game\+Engine.  
+
+
+{\ttfamily \#include \char`\"{}main.\+h\char`\"{}}\newline
+{\ttfamily \#include \char`\"{}draw.\+h\char`\"{}}\newline
+Include dependency graph for main.\+c\+:
+% FIG 0
+\subsection*{Functions}
+\begin{DoxyCompactItemize}
+\item 
+\mbox{\Hypertarget{main_8c_a0ddf1224851353fc92bfbff6f499fa97}\label{main_8c_a0ddf1224851353fc92bfbff6f499fa97}} 
+int {\bfseries main} (int argc, char $\ast$argv\mbox{[}$\,$\mbox{]})
+\end{DoxyCompactItemize}
+
+
+\subsection{Detailed Description}
+Game\+Engine. 
+
+\begin{DoxyAuthor}{Author}
+Legacy Team 
+\end{DoxyAuthor}
+\begin{DoxyVersion}{Version}
+0.\+1.\+3 
+\end{DoxyVersion}
+\begin{DoxyDate}{Date}
+Apr 18, 2019
+\end{DoxyDate}
+Game\+Engine 0.\+1.\+3
+
+Ayya Barra ay 

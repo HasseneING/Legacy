@@ -3,11 +3,15 @@
 
 extern SDL_Surface *loadImage(char *name);
 
+extern void initEnemies(void);
+
 extern Gestion jeu;
 
 extern Map map;
 
 extern Hero player;
+
+extern Enemy Knight;
 
 extern Menu Pausemenu;
 

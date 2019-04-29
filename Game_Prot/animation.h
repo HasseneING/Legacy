@@ -1,8 +1,6 @@
-    #include "structs.h"
+#include "structs.h"
 
-    extern Gestion jeu;
-    extern Hero player;
+extern Gestion jeu;
+extern Hero player;
 
-
-   /* Prototype des fonctions externes que nous allons utiliser ensuite */
-    extern void drawplayer(void);
+extern void drawplayer(Hero *player);

@@ -1,5 +1,16 @@
 #include "collision.h"
 
+/**
+* @file Collisionv2.0.c
+* @brief  Perfect Pixel Collision
+* @author Legacy Team
+* @version 0.1.3
+* @date Apr 18, 2019
+*
+* GameEngine 0.1.3
+*
+* Ayya Barra ay
+*/
 
 SDL_Color GetPixel(SDL_Surface *Background, int x, int y)
 {
@@ -46,8 +57,8 @@ void mapCollision(Hero *entity)
             {
 
                 entity->x -=   entity->dirX;
+                entity->coll = 1;
                 entity->dirX = 0;
-
             }
         }
 
@@ -61,10 +72,13 @@ void mapCollision(Hero *entity)
             {
 
                 entity->x -= entity->dirX;
+                entity->coll = 1;
                 entity->dirX = 0;
 
             }
         }
+        else
+          entity->coll = 0;
     }
 
     xg = (entity->x) + entity->w / 2;
@@ -125,7 +139,7 @@ void mapCollision(Hero *entity)
     {
 
         entity->timerMort = 18;
-
     }
+
     SDL_UnlockSurface(map.Map_Objects_Sprite_Sheet);
 }

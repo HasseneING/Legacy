@@ -2,7 +2,17 @@
 #define STRUCTS
 
 #include "defs.h"
-
+/**
+* @file Strucs.h
+* @brief  This File Contains the Structs used in the game
+* @author Legacy Team
+* @version 0.1.3
+* @date Apr 18, 2019
+*
+* GameEngine 0.1.3
+*
+* Ayya Barra ay
+*/
 
 typedef struct Input
 {
@@ -22,9 +32,12 @@ typedef struct Map
 {
 
 	SDL_Surface *background, *Map_Objects_Sprite_Sheet;
+	SDL_Rect Camera;
 
 	int startX, startY;
 	int maxX, maxY;
+
+	int level;
 
 
 
@@ -43,7 +56,7 @@ typedef struct Hero
 
 	/* Variables utiles pour l'animation */
 	int frameNumber, frameTimer;
-	int etat, direction;
+	int etat, direction,doubleJump;
 
 	/* Variables utiles pour la gestion des collisions */
 	int onGround, timerMort;
@@ -61,6 +74,24 @@ typedef struct wolf
 {
 	SDL_Surface *Wolf_anim;
 } Wolf;
+
+typedef struct Enemy
+{
+SDL_Surface *Spritesheet;
+
+SDL_Rect Pos;
+
+int x, y;
+int h, w;
+
+int frameNumber, frameTimer;
+int etat, direction;
+
+float dirX, dirY;
+
+int player_coll;
+
+}Enemy;
 
 typedef struct Menus
 {
